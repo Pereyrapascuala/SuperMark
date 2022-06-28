@@ -8,10 +8,13 @@ import java.util.Scanner;
 
 import conexionBD.creacionTabla;
 import conexionBD.properties;
+import models.Categorias;
+import models.ICategoria;
 import models.Iproducto;
 import models.Productos;
 import models.Registro;
 import models.cargarProductos;
+import models.categoriasImp;
 import models.productoImp;
 import models.verProductos;
 
@@ -35,6 +38,7 @@ public class main {
 			//
 			//System.out.println("****definimos nuestros servicios***");
 			Iproducto productoServicios = new productoImp(stmt);
+			ICategoria categoriaServicio = new categoriasImp(stmt);
 			
 			System.out.println("*******************************");
 			
@@ -65,6 +69,18 @@ public class main {
 							}
 							break;
 						case 3:
+							//obetenr la categoria
+							Categorias cate = categoriaServicio.buscarId(1);
+							if (cate != null) {
+								Productos pNuevo = new Productos(cate, "nuevo", "nuevo producto", "adidas", 100, 15999, 20000, 1233-06-03);
+								productoServicios.save(pNuevo);
+							} else {
+								System.out.println("no se encontro ese id");
+
+							}
+							
+							//
+							
 							
 							break;
 						case 4:

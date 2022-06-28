@@ -122,8 +122,48 @@ public class productoImp implements Iproducto{
 	public void cargarProductos(int idCate, String des, String nom, String mar, int stock, double costo, double precio,
 			String fechaVen) {
 		sql = "INSERT INTO productos (idProducto, idCategoria, descripcion, nombre, marca, stock, costo, precioVenta, fechaVencimient) VALUES (NULL," + idCate + ",  '" + des + "','" +nom +"','" + mar+"'," + stock + "," + costo + "," + precio + ");";
+		try {
+			stmt.executeUpdate(sql);
+			System.out.println("alta exitosa");			
+		} catch (Exception e) {
+			System.out.println("error al guardar producto");
+		}
 		
 		
+	}
+
+	@Override
+	public void save(Productos producto) {
+		sql = "INSERT INTO productos (idProducto, idCategoria, descripcion, nombre, marca, stock, costo, precioVenta, fechaVencimient) VALUES (NULL," + producto.getIdCategoria().getIdCategoria() + ",  '" + producto.getDescripcion() + "','" + producto.getNombre() +"','" + producto.getMarca()+"'," + producto.getStock() + "," + producto.getCosto() + "," + producto.getPrecioVenta() + "," + producto.getFechaVencimiento() + ");";
+		try {
+			stmt.executeUpdate(sql);
+			System.out.println("carga exitosa");			
+		} catch (Exception e) {
+			System.out.println("error al guardar producto");
+		}
+		
+	}
+
+	@Override
+	public void update(Productos producto) {
+		sql = "UPDATE productos SET nombre='" + producto.getNombre() + "', precio=" + producto.getPrecioVenta() + ", idCategoria=" + producto.getIdCategoria().getIdCategoria() + "where idProducto=" + producto.getIdProducto();
+		try {
+			stmt.executeUpdate(sql);
+			System.out.println("modificacion  exitosa");			
+		} catch (Exception e) {
+			System.out.println("error al modificar el  producto");
+		}
+	}
+
+	@Override
+	public void delete(int id) {
+		sql = "delete from productos where idProducto =" + id ;
+		try {
+			stmt.executeUpdate(sql);
+			System.out.println("eliminacion exitosa");			
+		} catch (Exception e) {
+			System.out.println("error al eliminar el  producto");
+		}
 		
 	}
     

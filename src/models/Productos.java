@@ -10,7 +10,7 @@ public class Productos {
 	private int stock;
 	private double costo;
 	private double precioVenta;
-	private  int fechaVencimiento;
+	private int fechaVencimiento;
 	//contructores
 	public Productos(int idProducto, Categorias idCategoria, String descripcion, String nombre, String marca, int stock,
 			double costo, double precioVenta, int fechaVencimiento) {
@@ -27,6 +27,19 @@ public class Productos {
 	}
 	public Productos() {
 		super();
+	}
+	
+	public Productos(Categorias idCategoria, String descripcion, String nombre, String marca, int stock, double costo,
+			double precioVenta, int fechaVencimiento) {
+		super();
+		this.idCategoria = idCategoria;
+		this.descripcion = descripcion;
+		this.nombre = nombre;
+		this.marca = marca;
+		this.stock = stock;
+		this.costo = costo;
+		this.precioVenta = precioVenta;
+		this.fechaVencimiento = fechaVencimiento;
 	}
 	//setters and getters
 	public int getIdProducto() {

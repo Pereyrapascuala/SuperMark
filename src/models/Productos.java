@@ -41,6 +41,18 @@ public class Productos {
 		this.precioVenta = precioVenta;
 		this.fechaVencimiento = fechaVencimiento;
 	}
+	
+	public Productos(Categorias idCategoria, String descripcion, String nombre, String marca, int stock, double costo,
+			double precioVenta) {
+		super();
+		this.idCategoria = idCategoria;
+		this.descripcion = descripcion;
+		this.nombre = nombre;
+		this.marca = marca;
+		this.stock = stock;
+		this.costo = costo;
+		this.precioVenta = precioVenta;
+	}
 	//setters and getters
 	public int getIdProducto() {
 		return idProducto;

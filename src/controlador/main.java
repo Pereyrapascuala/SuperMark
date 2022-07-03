@@ -9,14 +9,14 @@ import java.util.Scanner;
 import conexionBD.creacionTabla;
 import conexionBD.properties;
 import models.Categorias;
-import models.ICategoria;
-import models.Iproducto;
+
+
 import models.Productos;
-import models.Registro;
-import models.cargarProductos;
-import models.categoriasImp;
-import models.productoImp;
-import models.verProductos;
+
+
+
+
+
 
 public class main {
 	public static int opcion;
@@ -37,8 +37,8 @@ public class main {
 			String sql;
 			//
 			//System.out.println("****definimos nuestros servicios***");
-			Iproducto productoServicios = new productoImp(stmt);
-			ICategoria categoriaServicio = new categoriasImp(stmt);
+			servicios.Iproducto productoServicios = new servicios.productoImp(stmt);
+			servicios.categoriasImp categoriaServicio = new servicios.categoriasImp(stmt);
 			
 			System.out.println("*******************************");
 			
@@ -60,7 +60,7 @@ public class main {
 							productoServicios.mostrar();
 							break;
 						case 2 :
-							Productos p = productoServicios.encontrarPorID(1);
+							Productos p = productoServicios.encontrarPorID(2);
 							if (p != null) {
 								System.out.println(p.toString());
 							} else {
@@ -69,23 +69,26 @@ public class main {
 							}
 							break;
 						case 3:
-							//obetenr la categoria
+							//obetenr la categoria  falla 
 							Categorias cate = categoriaServicio.buscarId(1);
 							if (cate != null) {
-								Productos pNuevo = new Productos(cate, "nuevo", "nuevo producto", "adidas", 100, 15999, 20000, 1233-06-03);
+								Productos pNuevo = new Productos(cate, "nuevo", "nuevo", "nuevo", 4, 4, 4);
 								productoServicios.save(pNuevo);
 							} else {
 								System.out.println("no se encontro ese id");
 
 							}
 							
-							//
-							
-							
 							break;
 						case 4:
+							
+							
+
+							
 							break;
 						case 5:
+							productoServicios.delete(1);
+							
 							break;
 						   
 

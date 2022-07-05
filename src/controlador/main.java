@@ -60,7 +60,9 @@ public class main {
 							productoServicios.mostrar();
 							break;
 						case 2 :
-							Productos p = productoServicios.encontrarPorID(2);
+							System.out.print("ingrese el id del producto a buscar :");
+							int id = sc.nextInt();
+							Productos p = productoServicios.encontrarPorID(id);
 							if (p != null) {
 								System.out.println(p.toString());
 							} else {
@@ -81,13 +83,30 @@ public class main {
 							
 							break;
 						case 4:
+							Productos pEnc = productoServicios.encontrarPorID(2);
+							
+							if (pEnc !=null) {
+								pEnc.setNombre("modificado");
+								pEnc.setPrecioVenta(1000);
+								productoServicios.update(pEnc);
+							} else {
+								System.out.println("no se encontro el ID");
+
+							}
 							
 							
 
 							
 							break;
 						case 5:
-							productoServicios.delete(1);
+							Productos pEli = productoServicios.encontrarPorID(2);
+							if (pEli != null) {
+								productoServicios.delete(pEli.getIdProducto());
+							} else {
+								System.out.println("no se encontro ese id");
+
+							}
+							
 							
 							break;
 						   

@@ -153,7 +153,8 @@ public class productoImp implements Iproducto{
 
 	@Override
 	public void update(Productos producto) {
-		sql = "UPDATE productos SET nombre='" + producto.getNombre() + "', precio=" + producto.getPrecioVenta() + ", idCategoria=" + producto.getIdCategoria().getIdCategoria() + "where idProducto=" + producto.getIdProducto();
+		sql = "UPDATE productos SET nombre='" + producto.getNombre() + "', precioVenta=" + producto.getPrecioVenta() + /*", idCategoria=" + producto.getIdCategoria().getIdCategoria() +*/ "WHERE productos.idProducto=" + producto.getIdProducto();
+		//sql = "UPDATE productos SET nombre = 'leche entera 1 litros', `precioVenta` = '1300' WHERE `productos`.`idProducto` = 2"
 		try {
 			stmt.executeUpdate(sql);
 			System.out.println("modificacion  exitosa");			

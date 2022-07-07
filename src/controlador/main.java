@@ -5,23 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-
 import conexionBD.creacionTabla;
 import conexionBD.properties;
 import models.Categorias;
-
-
 import models.Productos;
-
-
-
-
 
 
 public class main {
 	public static int opcion;
 	public static Scanner sc = new Scanner(System.in);
-
 	public static void main(String[] args) throws SQLException, ClassNotFoundException  {
 		Connection conn = null;
 		Statement stmt = null;
@@ -31,17 +23,14 @@ public class main {
 			//abrir conexion
 			System.out.println("conectando");
 			conn = DriverManager.getConnection(properties.DB_URL,properties.USER,properties.PASS);
-			//ejecutar consulta sql
-			//System.out.println("creando statemen...");
+			//ejecutar consulta sql			
 			stmt = conn.createStatement();
 			String sql;
 			//
-			//System.out.println("****definimos nuestros servicios***");
 			servicios.Iproducto productoServicios = new servicios.productoImp(stmt);
 			servicios.categoriasImp categoriaServicio = new servicios.categoriasImp(stmt);
 			
 			System.out.println("*******************************");
-			
 			
 			String respuesta;
 			do {
@@ -71,16 +60,13 @@ public class main {
 							}
 							break;
 						case 3:
-							//obetenr la categoria  falla 
 							Categorias cate = categoriaServicio.buscarId(1);
 							if (cate != null) {
 								Productos pNuevo = new Productos(cate, "nuevo", "nuevo", "nuevo", 4, 4, 4);
 								productoServicios.save(pNuevo);
 							} else {
 								System.out.println("no se encontro ese id");
-
 							}
-							
 							break;
 						case 4:
 							Productos pEnc = productoServicios.encontrarPorID(2);
@@ -92,11 +78,7 @@ public class main {
 							} else {
 								System.out.println("no se encontro el ID");
 
-							}
-							
-							
-
-							
+							}	
 							break;
 						case 5:
 							Productos pEli = productoServicios.encontrarPorID(2);
@@ -104,19 +86,12 @@ public class main {
 								productoServicios.delete(pEli.getIdProducto());
 							} else {
 								System.out.println("no se encontro ese id");
-
 							}
-							
-							
-							break;
-						   
-
+							break;   
 						default:
 							break;
 						}
-						
 						break;
-
 					default:
 						break;
 					}
@@ -138,8 +113,6 @@ public class main {
 				default:
 					break;
 				}
-				
-				
 				sc.nextLine();
 				System.out.println("desea contirnuar si o no:");
 				respuesta = sc.nextLine();

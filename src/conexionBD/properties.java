@@ -8,3 +8,7 @@ public class properties {
 	
 
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

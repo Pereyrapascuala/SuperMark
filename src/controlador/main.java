@@ -207,6 +207,7 @@ public class main {
 		
 	}
  
+<<<<<<< Updated upstream
 	
 	
 	
@@ -214,3 +215,5 @@ public class main {
 	
 
 
+=======
+>>>>>>> Stashed changes
